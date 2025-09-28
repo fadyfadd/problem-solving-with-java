@@ -1,23 +1,27 @@
-import java.util.*;
+import java.util.Arrays;
 
 public class MatrixMultiplier {
 
-    public static List<List<Integer>> multiply(int[][] matrix1, int[][] matrix2) {
-        List<List<Integer>> result = new ArrayList<>();
-
+    public static int[][] multiply(int[][] matrix1, int[][] matrix2) {
         int rows1 = matrix1.length;
+        int cols1 = matrix1[0].length;
+        int rows2 = matrix2.length;
         int cols2 = matrix2[0].length;
 
+        if (cols1 != rows2) {
+            throw new IllegalArgumentException("Incompatible matrix dimensions for multiplication.");
+        }
+
+        int[][] result = new int[rows1][cols2];
+
         for (int i = 0; i < rows1; i++) {
-            List<Integer> row = new ArrayList<>();
             for (int j = 0; j < cols2; j++) {
                 int cumule = 0;
-                for (int k = 0; k < matrix2.length; k++) {
+                for (int k = 0; k < cols1; k++) {
                     cumule += matrix1[i][k] * matrix2[k][j];
                 }
-                row.add(cumule);
+                result[i][j] = cumule;
             }
-            result.add(row);
         }
 
         return result;
@@ -32,7 +36,11 @@ public class MatrixMultiplier {
             {1, 2}
         };
 
-        List<List<Integer>> product = multiply(matrix1, matrix2);
-        System.out.println(product); 
+        int[][] product = multiply(matrix1, matrix2);
+
+        // Imprimir la matriz resultante
+        for (int[] row : product) {
+            System.out.println(Arrays.toString(row));
+        }
     }
 }
