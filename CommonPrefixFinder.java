@@ -1,4 +1,8 @@
-import java.util.*;
+import static org.junit.Assert.assertTrue;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import org.junit.jupiter.api.*;
 
 public class CommonPrefixFinder {
 
@@ -21,9 +25,12 @@ public class CommonPrefixFinder {
         return result.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(findLongestCommonPrefix(Arrays.asList("fadyfadd", "fady faddoul", "fady_faddoul@hotmail.com"))); 
-        System.out.println(findLongestCommonPrefix(Arrays.asList(""))); 
-        System.out.println(findLongestCommonPrefix(Arrays.asList("fadyfadd"))); 
+    @Test
+    public void findLongestCommonPrefix_1() {
+        List<String> strings = Arrays.asList("flower", "flow", "flight");
+        String prefix = findLongestCommonPrefix(strings);
+        assertTrue(prefix.equals("fl"));
+       
     }
+
 }

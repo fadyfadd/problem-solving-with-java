@@ -1,3 +1,6 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class Compressor {
     public static String compress(String phrase) {
         if (phrase.isEmpty()) {
@@ -33,12 +36,9 @@ public class Compressor {
         return result.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(compress("fady"));         
-        System.out.println(compress(""));              
-        System.out.println(compress("fady faddoul"));  
-        System.out.println(compress("Rockwell"));      
-        System.out.println(compress("     "));        
-        System.out.println(compress("x     xz"));      
+    @Test
+    public void compress_1() {
+        String result = compress("aaabbbccc");
+        assertTrue(result.equals("a3b3c3"));
     }
 }

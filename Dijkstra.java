@@ -1,4 +1,9 @@
 import java.util.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+ 
 
 class PriorityItem implements Comparable<PriorityItem> {
     String item;
@@ -107,15 +112,15 @@ public class Dijkstra {
         return shortestDistance;
     }
 
-        public static void main(String[] args) {
-        Graph g = new Graph();
+    @Test
+    public void dijkstra_1() {
+               Graph g = new Graph();
         g.addEdge("A", "B", 1);
         g.addEdge("B", "C", 2);
 
         Dijkstra d = new Dijkstra();
         d.findShortestPath("A", "C", g);
-
-        System.out.println("Shortest path: " + d.getPath());            
-        System.out.println("Shortest distance: " + d.getShortestDistance());
-    }
+        assertTrue(d.shortestDistance  == 3);
+        assertEquals(d.getPath(), Arrays.asList("A", "B", "C"));
+    } 
 }

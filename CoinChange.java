@@ -1,4 +1,7 @@
-import java.util.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.Arrays;
+
 
 public class CoinChange {
 
@@ -18,9 +21,11 @@ public class CoinChange {
         return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void minCoinChange_1() {
         int[] coins = {1, 2, 5};
         int amount = 11;
-        System.out.println(minCoinChange(coins, amount)); 
+        int result = minCoinChange(coins, amount);
+        assertTrue(result == 3); 
     }
 }

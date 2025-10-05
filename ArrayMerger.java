@@ -1,4 +1,6 @@
 import java.util.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 public class ArrayMerger {
 
@@ -36,10 +38,12 @@ public class ArrayMerger {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void merge_1() {
         List<Integer> nums1 = new ArrayList<>(Arrays.asList(1, 2, 3, 0, 0, 0));
         List<Integer> nums2 = Arrays.asList(2, 5, 6);
         merge(nums1, 3, nums2, 3);
-        System.out.println(nums1);
-    }
+        assertTrue(nums1.equals(Arrays.asList(1, 2, 2, 3, 5, 6)));
+    }   
+
 }

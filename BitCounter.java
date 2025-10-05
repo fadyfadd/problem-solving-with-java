@@ -1,6 +1,10 @@
 import java.util.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class BitCounter {
+    
     public static List<Integer> countBits(int n) {
         List<Integer> res = new ArrayList<>();
 
@@ -11,9 +15,8 @@ public class BitCounter {
         return res;
     }
 
-    public static void main(String[] args) {
-        System.out.println(countBits(5)); 
-        System.out.println(countBits(0)); 
-        System.out.println(countBits(1));
+    @Test
+    public void countBits_1() {
+        assertTrue(countBits(5).equals(Arrays.asList(0, 1, 1, 2, 1, 2)));
     }
 }

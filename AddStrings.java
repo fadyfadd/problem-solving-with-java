@@ -1,4 +1,6 @@
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.*;
+import org.junit.jupiter.api.Test;
 
 public class AddStrings {
     public static String add2Strings(String nbr1, String nbr2) {
@@ -34,9 +36,19 @@ public class AddStrings {
         return value.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(add2Strings("9", "1"));   
-        System.out.println(add2Strings("9", "101"));  
-        System.out.println(add2Strings("99", "2"));    
+    @Test
+    public void add2Strings_1() {
+        assertTrue(add2Strings("9", "1").equals("10"));
     }
+
+    @Test
+    public void add2Strings_2() {
+        assertTrue(add2Strings("9", "101").equals("110"));
+    }
+
+    @Test
+    public void add2Strings_3() {
+        assertTrue(add2Strings("99", "2").equals("101"));
+    }
+
 }
