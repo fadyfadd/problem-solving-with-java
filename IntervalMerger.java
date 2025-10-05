@@ -1,4 +1,7 @@
 import java.util.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
 
 public class IntervalMerger {
 
@@ -38,14 +41,26 @@ public class IntervalMerger {
         return results;
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void insertInterval_Test() {
         List<List<Integer>> mainIntervals = Arrays.asList(
             Arrays.asList(1, 3),
             Arrays.asList(6, 9)
         );
         List<Integer> toInsert = Arrays.asList(2, 5);
 
+        List<List<Integer>> expected = Arrays.asList(
+            Arrays.asList(1, 5),
+            Arrays.asList(6, 9)
+        );
+
         List<List<Integer>> result = insertInterval(mainIntervals, toInsert);
-        System.out.println(result); 
+
+        assertEquals(expected, result); 
     }
+
 }
+
+
+
+

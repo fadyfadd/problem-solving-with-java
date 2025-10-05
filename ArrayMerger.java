@@ -44,6 +44,6 @@ public class ArrayMerger {
         List<Integer> nums2 = Arrays.asList(2, 5, 6);
         merge(nums1, 3, nums2, 3);
         assertTrue(nums1.equals(Arrays.asList(1, 2, 2, 3, 5, 6)));
-    }   
+    }
 
 }

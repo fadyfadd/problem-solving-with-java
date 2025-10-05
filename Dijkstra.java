@@ -1,9 +1,7 @@
 import java.util.*;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
- 
 
 class PriorityItem implements Comparable<PriorityItem> {
     String item;
@@ -41,7 +39,7 @@ class Graph {
 
     public void addEdge(String fromNode, String toNode, int weight) {
         content.computeIfAbsent(fromNode, k -> new ArrayList<>())
-               .add(new PriorityItem(toNode, weight));
+                .add(new PriorityItem(toNode, weight));
     }
 
     public Map<String, List<PriorityItem>> getContent() {
@@ -114,13 +112,13 @@ public class Dijkstra {
 
     @Test
     public void dijkstra_1() {
-               Graph g = new Graph();
+        Graph g = new Graph();
         g.addEdge("A", "B", 1);
         g.addEdge("B", "C", 2);
 
         Dijkstra d = new Dijkstra();
         d.findShortestPath("A", "C", g);
-        assertTrue(d.shortestDistance  == 3);
+        assertTrue(d.shortestDistance == 3);
         assertEquals(d.getPath(), Arrays.asList("A", "B", "C"));
-    } 
+    }
 }

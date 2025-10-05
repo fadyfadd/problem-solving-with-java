@@ -2,9 +2,8 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 public class BitCounter {
-    
+
     public static List<Integer> countBits(int n) {
         List<Integer> res = new ArrayList<>();
 

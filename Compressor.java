@@ -26,7 +26,6 @@ public class Compressor {
             }
         }
 
-       
         if (lastCount > 1) {
             result.append(lastChar).append(lastCount);
         } else {

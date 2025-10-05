@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Arrays;
 
-
 public class CoinChange {
 
     public static int minCoinChange(int[] coins, int amount) {
@@ -23,9 +22,9 @@ public class CoinChange {
 
     @Test
     public void minCoinChange_1() {
-        int[] coins = {1, 2, 5};
+        int[] coins = { 1, 2, 5 };
         int amount = 11;
         int result = minCoinChange(coins, amount);
-        assertTrue(result == 3); 
+        assertTrue(result == 3);
     }
 }

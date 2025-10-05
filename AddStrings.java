@@ -14,8 +14,8 @@ public class AddStrings {
 
         for (int i = l - 1; i >= 0; i--) {
             int sum = Character.getNumericValue(nbr1.charAt(i)) +
-                      Character.getNumericValue(nbr2.charAt(i)) +
-                      retain;
+                    Character.getNumericValue(nbr2.charAt(i)) +
+                    retain;
             if (sum < 10) {
                 stk.push(String.valueOf(sum));
                 retain = 0;

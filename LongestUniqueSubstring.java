@@ -1,4 +1,7 @@
 import java.util.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
 
 public class LongestUniqueSubstring {
 
@@ -28,8 +31,12 @@ public class LongestUniqueSubstring {
         return s.substring(startIndex, startIndex + maxLength);
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void testLongestSubstringWithoutRepeating() {
         String s = "abcabcbb";
-        System.out.println(longestSubstringWithoutRepeating(s)); 
+        String actual = longestSubstringWithoutRepeating(s);
+        assertEquals(actual, "abc");
     }
 }
+
+

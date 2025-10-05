@@ -30,7 +30,7 @@ public class CommonPrefixFinder {
         List<String> strings = Arrays.asList("flower", "flow", "flight");
         String prefix = findLongestCommonPrefix(strings);
         assertTrue(prefix.equals("fl"));
-       
+
     }
 
 }
