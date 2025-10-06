@@ -1,4 +1,6 @@
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.jupiter.api.Test;
+
 
 public class MatrixMultiplier {
 
@@ -27,7 +29,8 @@ public class MatrixMultiplier {
         return result;
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void multiply_1() {
         int[][] matrix1 = {{1, 2, 3, 8}};
         int[][] matrix2 = {
             {1, 2},
@@ -36,11 +39,15 @@ public class MatrixMultiplier {
             {1, 2}
         };
 
+        int[][] expected = {
+            {1*1 + 2*1 + 3*1 + 8*1, 1*2 + 2*2 + 3*2 + 8*2} // => {14, 28}
+        };
+
         int[][] product = multiply(matrix1, matrix2);
 
-        // Imprimir la matriz resultante
-        for (int[] row : product) {
-            System.out.println(Arrays.toString(row));
+      
+        for (int i = 0; i < expected.length; i++) {
+            assertArrayEquals(expected[i], product[i]);
         }
     }
 }

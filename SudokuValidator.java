@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 public class SudokuValidator {
@@ -57,7 +60,9 @@ public class SudokuValidator {
         return true;
     }
 
-    public static void main(String[] args) {
+
+    @Test
+    void isValidSudoku_1() {
         String[][] board1 = {
             {"5","3",".",".","7",".",".",".","."},
             {"6",".",".","1","9","5",".",".","."},
@@ -70,6 +75,11 @@ public class SudokuValidator {
             {".",".",".",".","8",".",".","7","9"}
         };
 
+        assertTrue(SudokuValidator.isValidSudoku(board1));
+    }
+
+    @Test
+    void isValidSudoku_2() {
         String[][] board2 = {
             {".",".","4",".",".",".","6","3","."},
             {".",".",".",".",".",".",".",".","."},
@@ -82,7 +92,6 @@ public class SudokuValidator {
             {".",".",".",".",".",".",".",".","."}
         };
 
-        System.out.println(isValidSudoku(board1));
-        System.out.println(isValidSudoku(board2));
+        assertFalse(SudokuValidator.isValidSudoku(board2));
     }
 }

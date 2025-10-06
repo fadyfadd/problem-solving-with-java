@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 public class TwoSums {
@@ -17,10 +20,11 @@ public class TwoSums {
         return new int[0]; // No match found
     }
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(twoSums(new int[] {2, 7, 11, 15}, 9)));
-        System.out.println(Arrays.toString(twoSums(new int[] {3, 2, 4}, 6)));     
-        System.out.println(Arrays.toString(twoSums(new int[] {1, 5, 3, 7}, 8)));
-        System.out.println(Arrays.toString(twoSums(new int[] {1, 2, 3}, 10)));   
+    @Test
+    void testTypicalCase() {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = twoSums(nums, target);
+        assertArrayEquals(new int[]{0, 1}, result);
     }
 }

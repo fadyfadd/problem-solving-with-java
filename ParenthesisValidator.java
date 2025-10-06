@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 public class ParenthesisValidator {
@@ -28,8 +31,11 @@ public class ParenthesisValidator {
         return stack.isEmpty();
     }
 
-    public static void main(String[] args) {
-        String s = "{[()]}";
-        System.out.println(isValidParenthesis(s)); 
+    @Test
+    void isValidParenthesis_1() {
+        assertTrue(ParenthesisValidator.isValidParenthesis("()"));
+        assertTrue(ParenthesisValidator.isValidParenthesis("()[]{}"));
+        assertTrue(ParenthesisValidator.isValidParenthesis("{[()]}"));
+        assertTrue(ParenthesisValidator.isValidParenthesis(""));
     }
 }

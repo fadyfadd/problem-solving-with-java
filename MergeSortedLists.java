@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 public class MergeSortedLists {
 
     static class ListNode {
@@ -15,6 +18,7 @@ public class MergeSortedLists {
     }
 
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        
         ListNode head = new ListNode(0);
         ListNode last = head;
 
@@ -48,14 +52,21 @@ public class MergeSortedLists {
         return head.next;
     }
 
-    public static void main(String[] args) {
+    @Test
+    void mergeTwoLists_1() {
+
         ListNode a = new ListNode(1, new ListNode(3, new ListNode(5)));
         ListNode b = new ListNode(2, new ListNode(4, new ListNode(6)));
 
         ListNode merged = mergeTwoLists(a, b);
-        while (merged != null) {
-            System.out.print(merged.val + " -> ");
-            merged = merged.next;
-        }
+
+        assertEquals(merged.val , 1);
+        assertEquals(merged.next.val , 2);
+        assertEquals(merged.next.next.val , 3);
+        assertEquals(merged.next.next.next.val , 4);
+        assertEquals(merged.next.next.next.next.val , 5);
+        assertEquals(merged.next.next.next.next.next.val , 6);  
     }
+
+ 
 }

@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 public class StockProfit {
 
     public static int maxProfit(int[] prices) {
@@ -13,11 +16,9 @@ public class StockProfit {
         return maxProfit;
     }
 
-    public static void main(String[] args) {
-        System.out.println(maxProfit(new int[]{7, 1, 5, 3, 6, 4})); 
-        System.out.println(maxProfit(new int[]{7, 6, 5, 4, 3, 1}));
-        System.out.println(maxProfit(new int[]{1, 2, 3, 4}));     
-        System.out.println(maxProfit(new int[]{1}));              
-        System.out.println(maxProfit(new int[]{}));                
+    @Test
+    void maxProfit_1() {
+        assertEquals(5, StockProfit.maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
     }
+
 }

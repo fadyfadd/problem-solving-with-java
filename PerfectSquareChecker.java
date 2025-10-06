@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 public class PerfectSquareChecker {
 
     public static boolean isPerfectSquare(int num) {
@@ -17,7 +20,17 @@ public class PerfectSquareChecker {
         return value * value == num;
     }
 
-    public static void main(String[] args) {
-        System.out.println(isPerfectSquare(16)); 
+    @Test
+    void isPerfectSquare_1() {
+
+        assertTrue(PerfectSquareChecker.isPerfectSquare(0));
+        assertTrue(PerfectSquareChecker.isPerfectSquare(1));
+        assertTrue(PerfectSquareChecker.isPerfectSquare(4));
+        assertTrue(PerfectSquareChecker.isPerfectSquare(9));
+        assertTrue(PerfectSquareChecker.isPerfectSquare(16));
+        assertTrue(PerfectSquareChecker.isPerfectSquare(25));
+        assertTrue(PerfectSquareChecker.isPerfectSquare(100));
+    
     }
+
 }

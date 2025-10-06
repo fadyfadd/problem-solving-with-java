@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 public class ReverseList {
@@ -15,9 +18,10 @@ public class ReverseList {
         }
     }
 
-    public static void main(String[] args) {
-        List<Integer> a = new ArrayList<>(Arrays.asList(1, 2, 2, 3));
-        reverseList(a);
-        System.out.println(a); 
+    @Test
+    void reverseList_1() {
+        List<Integer> list = new ArrayList<>(List.of(1, 2, 3, 4));
+        ReverseList.reverseList(list);
+        assertEquals(List.of(4, 3, 2, 1), list);
     }
 }

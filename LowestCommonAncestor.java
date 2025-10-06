@@ -1,5 +1,8 @@
-public class LowestCommonAncestor {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
+public class LowestCommonAncestor {
+    
     static class TreeNode {
         int val;
         TreeNode left, right;
@@ -22,8 +25,8 @@ public class LowestCommonAncestor {
         return left != null ? left : right;
     }
 
-    public static void main(String[] args) {
-        
+    @Test   
+    void lowestCommonAncestor_1() {
         TreeNode root = new TreeNode(3);
         TreeNode node5 = new TreeNode(5);
         TreeNode node1 = new TreeNode(1);
@@ -48,6 +51,7 @@ public class LowestCommonAncestor {
         TreeNode q = node1;
 
         TreeNode ancestor = lowestCommonAncestor(root, p, q);
-        System.out.println("Lowest Common Ancestor of " + p.val + " and " + q.val + " is: " + ancestor.val);
+        assertEquals(ancestor, root);
+
     }
 }

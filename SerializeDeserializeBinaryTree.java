@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 public class SerializeDeserializeBinaryTree {
@@ -31,23 +34,27 @@ public class SerializeDeserializeBinaryTree {
         return node;
     }
 
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
+    private void assertTreeEquals(TreeNode expected,
+                                   TreeNode actual) {
+        if (expected == null && actual == null) return;
+        assertNotNull(expected);
+        assertNotNull(actual);
+        assertEquals(expected.val, actual.val);
+        assertTreeEquals(expected.left, actual.left);
+        assertTreeEquals(expected.right, actual.right);
+    }
 
+    @Test
+    void testSerializeAndDeserializeTogether() {
+
+        SerializeDeserializeBinaryTree.TreeNode root =
+                new SerializeDeserializeBinaryTree.TreeNode(1);
+        root.left = new SerializeDeserializeBinaryTree.TreeNode(2);
+        root.right = new SerializeDeserializeBinaryTree.TreeNode(3);
         SerializeDeserializeBinaryTree ser = new SerializeDeserializeBinaryTree();
-        String data = ser.serialize(root);
-        System.out.println("Serialized: " + data);
-
-        TreeNode newRoot = ser.deserialize(data);
-        printPreOrder(newRoot); 
+        String serialized = ser.serialize(root);
+        SerializeDeserializeBinaryTree.TreeNode deserializedRoot = ser.deserialize(serialized);
+        assertTreeEquals(root, deserializedRoot);
     }
 
-    private static void printPreOrder(TreeNode node) {
-        if (node == null) return;
-        System.out.print(node.val + " ");
-        printPreOrder(node.left);
-        printPreOrder(node.right);
-    }
 }

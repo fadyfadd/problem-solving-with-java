@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 public class PermutationFinder {
@@ -28,9 +31,22 @@ public static List<List<Integer>> findAllPermutations(List<Integer> nums) {
     return result;
 }
 
+    @Test
+    void findAllPermutations_1() {
+        List<List<Integer>> result = findAllPermutations(Arrays.asList(1, 2, 3));
 
-    public static void main(String[] args) {
-        System.out.println(findAllPermutations(Arrays.asList(1, 2, 3)));
-        System.out.println(findAllPermutations(Arrays.asList(1, 2)));
+        List<List<Integer>> expected = Arrays.asList(
+                Arrays.asList(1, 2, 3),
+                Arrays.asList(2, 1, 3),
+                Arrays.asList(2, 3, 1),
+                Arrays.asList(1, 3, 2),
+                Arrays.asList(3, 1, 2),
+                Arrays.asList(3, 2, 1)
+        );
+
+        assertEquals(expected.size(), result.size());
+        assertTrue(result.containsAll(expected));
     }
+
+
 }

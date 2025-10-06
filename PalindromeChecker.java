@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 public class PalindromeChecker {
 
     public static boolean isNumberPalindrome(int x) {
@@ -12,7 +15,11 @@ public class PalindromeChecker {
         return x == value;
     }
 
-    public static void main(String[] args) {
-        System.out.println(isNumberPalindrome(121)); // true
+    @Test
+    void isNumberPalindrome_1() {
+        assertTrue(PalindromeChecker.isNumberPalindrome(121));
+        assertTrue(PalindromeChecker.isNumberPalindrome(12321));
+        assertTrue(PalindromeChecker.isNumberPalindrome(0));
+        assertTrue(PalindromeChecker.isNumberPalindrome(1));
     }
 }

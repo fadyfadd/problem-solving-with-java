@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 public class MinDepthBinaryTree {
 
     static class TreeNode {
@@ -16,7 +19,8 @@ public class MinDepthBinaryTree {
     }
 
     public static int minDepth(TreeNode root) {
-        if (root == null) return 0;
+        if (root == null)
+            return 0;
 
         int leftDepth = minDepth(root.left);
         int rightDepth = minDepth(root.right);
@@ -28,14 +32,16 @@ public class MinDepthBinaryTree {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    void min_depth_1() {
         TreeNode root = new TreeNode(1,
-            new TreeNode(2,
-                new TreeNode(4),
-                null),
-            new TreeNode(3)
-        );
+                new TreeNode(2,
+                        new TreeNode(4),
+                        null),
+                new TreeNode(3));
 
-        System.out.println(minDepth(root));
+        int expectedMinDepth = 2;
+        assertEquals(expectedMinDepth, minDepth(root));
     }
+
 }

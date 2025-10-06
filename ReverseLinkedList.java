@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 public class ReverseLinkedList {
 
     static class ListNode {
@@ -28,19 +31,24 @@ public class ReverseLinkedList {
         return prev;
     }
 
-    public static void main(String[] args) {
-        ListNode head = new ListNode(1,
-                          new ListNode(2,
-                          new ListNode(3,
-                          new ListNode(4))));
-
-        ListNode reversedHead = reverseList(head);
-        ListNode curr = reversedHead;
-
-        while (curr != null) {
-            System.out.print(curr.val + (curr.next != null ? " -> " : "\n"));
-            curr = curr.next;
+    private String listToString (ListNode head) {
+        StringBuilder sb = new StringBuilder();
+        while (head != null) {
+            sb.append(head.val);
+            if (head.next != null) sb.append("->");
+            head = head.next;
         }
-      
+        return sb.toString();
     }
+
+    @Test
+    void reverseList_1() {
+        ReverseLinkedList.ListNode head = new ReverseLinkedList.ListNode(1,
+                new ReverseLinkedList.ListNode(2));
+
+        ReverseLinkedList.ListNode reversed = ReverseLinkedList.reverseList(head);
+
+        assertEquals("2->1", listToString(reversed));
+    }
+
 }
